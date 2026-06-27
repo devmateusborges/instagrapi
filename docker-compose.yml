@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
     container_name: instagrapi
     restart: unless-stopped
+    ports:
+      - "8989:8989"
     volumes:
       - ./sessions:/app/sessions
       - ./data:/app/data
@@ -14,6 +16,7 @@ services:
       - INSTAGRAM_USERNAME=${INSTAGRAM_USERNAME}
       - INSTAGRAM_PASSWORD=${INSTAGRAM_PASSWORD}
       - PROXY_URL=${PROXY_URL:-}
+      - PORT=8989
     networks:
       - instagrapi_network
 
