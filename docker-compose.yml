@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  instagrapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: instagrapi
+    restart: unless-stopped
+    volumes:
+      - ./sessions:/app/sessions
+      - ./data:/app/data
+    environment:
+      - INSTAGRAM_USERNAME=${INSTAGRAM_USERNAME}
+      - INSTAGRAM_PASSWORD=${INSTAGRAM_PASSWORD}
+    networks:
+      - instagrapi_network
+
+networks:
+  instagrapi_network:
+    driver: bridge
