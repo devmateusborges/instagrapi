@@ -13,6 +13,7 @@ services:
     environment:
       - INSTAGRAM_USERNAME=${INSTAGRAM_USERNAME}
       - INSTAGRAM_PASSWORD=${INSTAGRAM_PASSWORD}
+      - PROXY_URL=${PROXY_URL:-}
     networks:
       - instagrapi_network
 
